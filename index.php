@@ -10,18 +10,18 @@ require_once 'PedestrianWay.php';
 
 var_dump(Car::ALLOWED_ENERGIES);
 
-$bicycle = new Bicycle("blue", 1);
-echo $bicycle->forward();
-var_dump($bicycle);
+$bike = new Bicycle("blue", 1);
+echo $bike->forward();
+
 
 $car = new Car('green', 4, 'electric', true);
 echo $car->forward();
-var_dump($car);
+
 
 $truck = new Truck('reed', 3, 'fuel', 100);
 $truck->SetStorage(50);
 echo $truck->forward();
-var_dump($truck);
+
 
 echo '<br> Vitesse du camion : ' . $truck->getCurrentSpeed() . ' km/h' . '<br>';
 echo $truck->brake();
@@ -31,15 +31,15 @@ echo 'Le camion est: ' . $truck->getStorageLevel();
 
 $motorWay = new MotorWay(4, 130);
 $motorWay->addVehicle(new Car('green', 5, 'electric',true));
-var_dump($motorWay);
+
 
 $residentialWay = new ResidentialWay(1, 10);
 $residentialWay->addVehicle(new Truck('white', 3, 'fuel', 200));
-var_dump($residentialWay);
+;
 
 $pedestrianWay = new PedestrianWay(2, 50);
 $pedestrianWay->addVehicle(new Bicycle('orange', 1));
-var_dump($pedestrianWay);
+
 
 echo $car->getParkBrake();
 try
@@ -53,6 +53,18 @@ catch(Exception $e)
 }
 finally
 {
-    echo "ma voiture roule comme un donut <br/>";
+    echo "ma voiture roule comme un donut"."<br>"."<br>";
 }
+
+
+echo "les feux de la voiture sont : " . ($car->switchOn()?'allumé':'éteint'). "<br>";
+echo "les feux de la voiture sont : " . ($car->switchOn()?'allumé':'éteint'). "<br>";
+
+$bike->setCurrentSpeed(5);
+echo "le vélo roule à " . $bike->getCurrentSpeed() . "km/h, les feux du vélo sont : ".($bike->switchOn()?'allumé':'éteint'). "<br>";
+$bike->setCurrentSpeed(10);
+echo "le vélo roule à " . $bike->getCurrentSpeed() . "km/h, les feux du vélo sont : ".($bike->switchOn()?'allumé':'éteint'). "<br>";
+echo "les feux du vélo sont : ".($bike->switchOff()?'allumé':'éteint'). "<br>";
+
+
 ?> 
