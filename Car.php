@@ -3,7 +3,7 @@
 require_once 'Vehicle.php';
 require_once 'LightableInterface.php';
 
-class Car extends Vehicle implements LigthableIntreface
+class Car extends Vehicle implements LightableIntreface
  {
     public const ALLOWED_ENERGIES= 
     [
