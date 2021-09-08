@@ -1,5 +1,6 @@
 <?php
 
+require_once 'Speedometer.php';
 require_once 'Vehicle.php';
 require_once 'Bicycle.php';
 require_once 'Car.php';
@@ -67,4 +68,7 @@ echo "le vélo roule à " . $bike->getCurrentSpeed() . "km/h, les feux du vélo 
 echo "les feux du vélo sont : ".($bike->switchOff()?'allumé':'éteint'). "<br>";
 
 
+echo " 10 km/h représente une vitesse de : " . Speedometer::convertKmInMiles(10) . "Mp/h" ."<br>";
+echo " 10 Mp/h rprésente une vitesse de : " . Speedometer::convertMilesInKm(10) . "Km/h";
+ 
 ?> 
